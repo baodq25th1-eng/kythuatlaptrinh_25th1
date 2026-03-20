@@ -71,15 +71,15 @@ int main() {
 		{
 		case1: {
 			break;
-			}
+		}
 	case2: {
-		break;
-	}
+		 break;
+	    }
       case3: {
         break;
 	  }
       case4: {
-       break;
+        break;
       }
       case5: {
         break;
