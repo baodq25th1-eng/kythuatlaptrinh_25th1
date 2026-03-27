@@ -109,7 +109,7 @@ void readfromfile(vector<person>&p, string filename) {
 	
 int main() {
 	vector <person> list;
-	while (true) { // Fix: Replace 'do' with 'while (true)' and move the loop body inside
+	do  {
 		system("cls");
 		cout << "----human resoure---------" << endl;
 		cout << "1. view person list" << endl;
