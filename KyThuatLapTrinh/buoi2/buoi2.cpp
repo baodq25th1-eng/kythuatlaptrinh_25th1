@@ -9,24 +9,62 @@ struct person {
 		os << "\t+ name:" << p.name << endl;
 		return os;
 	}
-	friend istream& operator
+	friend istream& operator >> (istream& in, person& p) {
+		cout << "input person infomation:" << endl;
+		cout << " \t + id: ";
+		in >> p.id;
+		cout << " \t + name: ";
+		in.ignore();
+		getline(in, p.name);	
+		in >> p.name;
+		return in;
+        
+
+	}
 };
 struct node {
     person data;
     node* next;
+	node(person x) : data(x), next(NULL) {}
 };
 struct linkedlist {
     node* head ;
 	void show() {
 		if (head == NULL) {
-			cout << "id:" << item->data.id << endl;
-			cout << "name:" << item->data.name << endl;
+			cout << "empty list" << endl;
+			return;
+		}
+		node* item = head;
+		while (item != NULL) {
+			cout << item->data;
 			item = item->next;
 		}
 	}
+	void add(person x) {
+		node* newnode = new node(x);
+		head = newnode;	
+	}
+	bool remove(int x) {
+		if (head == NULL) {
+			return false;
+		}
+		node* item = head;
+		if (item->data.id == x) {
+			head = item->next;
+			delete item;
+			return true;
+		}
+		while (item->next != NULL) {
+			if (item->next->data.id == x) {
+				node* temp = item->next;
+				item->next = temp->next;
+				delete temp;
+				return true;
+			}
+			item = item->next;
+		} 
+	}
 };
-
-
 
 int main()
 {
@@ -53,14 +91,17 @@ int main()
 			break;
 		}
 		case 2: {
-			
+			person a;
+			cin >> a;
+			list.add(a);
+			cout << "add a person successfully" << endl;
 			break;
 		}
 		case 3: {
 			int id;
 			cout << "input id to remove: ";
 			cin >> id;
-			
+			list.remove(id);
 			break;
 		}
 		case 4: {
