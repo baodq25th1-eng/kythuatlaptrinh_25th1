@@ -1,9 +1,19 @@
 
 #include <iostream>
+#include <string>
 using namespace std;
 struct Author {
     int id;
     string name;
+    friend istream& operator>>(istream& in, Author& a) {
+        cout << "Author information:" << endl;
+        cout << "\t+ Id:";
+        in >> a.id;
+        cout << "\t+ Name:";
+        in.ignore();
+        getline(in, a.name);
+        return in;
+    }
 };
 struct Book {
     int id;
@@ -15,11 +25,26 @@ struct Book {
         os << "\t+ Name:" << b.name << endl;
         os << "\t+ Author name:" << b.author.name << endl;
         return os;
-
+    }
+    friend istream& operator>>(istream& in, Book& b) {
+        cout << "Book information :" << endl;
+        cout << "\t+ Id:" << b.id << endl;
+        in >> b.id;
+        cout << "\t+ Name:" << b.name << endl;
+        in.ignore();
+        getline(in, b.name);
+        in >> b.author;
+        return in;
+    }
+    
 };
 struct Node {
     Book data;
     Node* next;
+    void Create(Book b) {
+        data = b;
+        next = nullptr;
+    }
 
 };
 struct LinkedList { 
@@ -34,6 +59,10 @@ struct LinkedList {
             cout << item->data;
             item = item->next;
         }
+    }
+    void AddFirst(Node* p) {
+        p->next = head;
+        head = p;
     }
 
 };
@@ -61,6 +90,10 @@ int main()
             break;
             }
         case 2: {
+            Book b;
+            Node* newNode = new Node;
+            newNode->Create(b);
+            book.AddFirst(newNode);
             break;
         }
         case 3: {
