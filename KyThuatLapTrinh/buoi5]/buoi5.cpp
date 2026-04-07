@@ -98,6 +98,20 @@ struct LinkedList {
         }
         return false;
     }
+    Book* Find(string bookName) {
+        if (head == NULL) {
+			cout << "No book available" << endl;
+			return NULL;
+        }
+		Node* item = head;
+        while (item != NULL) {
+            if (item->data.name.find(bookName) != string::npos) {
+                return &(item->data);
+		    }
+			item = item->next;
+        }
+		return NULL;
+    }
 };
 
 int main()
@@ -153,6 +167,17 @@ int main()
             break;
         }
         case 5: {
+			string bookName;
+			cout << "Enter book's name to find: ";
+			cin.ignore();
+			getline(cin, bookName);
+			Book* res = book.Find(bookName);
+            if (res != NULL) {
+                cout << *res;
+            }
+            else {
+				cout << "No book  with name: " << bookName << endl;
+            }
             break;
         }
         case 6: {
