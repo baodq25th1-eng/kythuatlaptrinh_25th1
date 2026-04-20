@@ -1,11 +1,11 @@
 
-
 #include <iostream>
 #include "Account.h"
 #include "LinkedList.h"
+
 int main()
 {
-	linkedList books = { NULL };
+	LinkedList<Account> account = { NULL };
 	do {
 		system("cls");
 		cout << "-----------BOOK MANAGEMENT---------" << endl;
@@ -26,37 +26,41 @@ int main()
 		case 1: {
 			Account.show();
 			break;
-			
+
+
 		}
 		case 2: {
 			Account a;
 			cin >> a;
-			account.add(a);
+			account.Add(a);
 			break;
+
+
+
 
 		}
 		case 3: {
 			int removeId;
-			cout << "enter account Id to remove:";
+			cout << "enter account id to remove: ";
 			cin >> removeId;
-			account.Remove(remove);
+			account.Remove(removeId);
 			break;
 		}
 		case 4: {
-			
+
 			break;
 
 		}
 		case 5: {
-			
+
 			break;
 		}
 		case 6: {
-			
+
 			break;
 		}
 		case 0: {
-			return;
+			return 0;
 		}
 		default: {
 			cout << "Invalid choice, try again" << endl;
@@ -67,5 +71,4 @@ int main()
 		cout << "Press any key to continue..";
 	} while (true);
 }
-
 

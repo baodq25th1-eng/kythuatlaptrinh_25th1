@@ -6,10 +6,16 @@ struct Node {
 	Node* next;
 };
 
-template <typename T>
+template <typename T>       
 struct LinkedList {
 	Node<T>* head;
 	void Show();
+	void Add(T item);
+	bool Remove(int id);
+	bool Update(int id);
+	void Find(string userName);
+	void Export(string fileName);
+	void Import(string fileName);
 
 };
 
@@ -65,6 +71,3 @@ bool LinkedList<T>::Remove(int id) {
 	}
 	return false;
 }
-
-
-
