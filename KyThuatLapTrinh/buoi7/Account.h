@@ -12,7 +12,7 @@ struct Account {
 	friend ostream& operator<<(ostream& os, Account& b) {
 		cout << "Account information: " << endl;
 		cout << "\t+ Id: ";
-		in >> b.id
+		in >> b.id;
 			cout << "\t+ Link: ";
 		in.ignore();
 		getline(in, b.lnk);

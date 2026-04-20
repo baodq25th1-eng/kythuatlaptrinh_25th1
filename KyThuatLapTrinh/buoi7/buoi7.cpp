@@ -24,10 +24,14 @@ int main()
 		switch (choice)
 		{
 		case 1: {
+			Account.show();
+			break;
 			
 		}
 		case 2: {
-			
+			Account a;
+			cin >> a;
+			account.add(a);
 			break;
 
 		}
@@ -63,5 +67,5 @@ int main()
 		cout << "Press any key to continue..";
 	} while (true);
 }
-}
+
 
