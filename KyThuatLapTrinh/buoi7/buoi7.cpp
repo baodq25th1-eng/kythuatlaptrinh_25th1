@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include "Account.h"
 #include "LinkedList.h"
@@ -24,7 +23,7 @@ int main()
 		switch (choice)
 		{
 		case 1: {
-			Account.show();
+			account.Show();
 			break;
 
 
